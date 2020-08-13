@@ -1,0 +1,109 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "hex_0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_0[6]",
+					"strict" : false
+				},
+				{
+					"name" : "coin_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "coin_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "coin_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "coin_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "coin_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "moving_car_inside_sensor",
+					"strict" : false
+				},
+				{
+					"name" : "address_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "push_address_button",
+					"strict" : false
+				},
+				{
+					"name" : "push_password_button",
+					"strict" : false
+				},
+				{
+					"name" : "password_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "password_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "password_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "password_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "address_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "address_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "address_in[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

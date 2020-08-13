@@ -1,0 +1,582 @@
+Analysis & Synthesis report for AutomatedParkingSystem
+Thu Aug 13 15:12:49 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |automated_parking_system|e_parking_fsm:i_e_parking_fsm|sl_present_state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: e_memory:i_e_memory
+ 15. Parameter Settings for User Entity Instance: e_parking_fsm:i_e_parking_fsm
+ 16. Parameter Settings for User Entity Instance: e_payment_fsm:i_e_payment_fsm
+ 17. Parameter Settings for User Entity Instance: e_7seg_words_coins:i_e_7seg_words_coins
+ 18. Parameter Settings for User Entity Instance: e_7seg_bcd_decoder:i_e_7seg_bcd_decoder
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Aug 13 15:12:49 2020       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; AutomatedParkingSystem                      ;
+; Top-level Entity Name           ; automated_parking_system                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 15                                          ;
+; Total pins                      ; 65                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                       ;
++---------------------------------------------------------------------------------+--------------------------+------------------------+
+; Option                                                                          ; Setting                  ; Default Value          ;
++---------------------------------------------------------------------------------+--------------------------+------------------------+
+; Device                                                                          ; 5CEFA7F27C6              ;                        ;
+; Top-level entity name                                                           ; automated_parking_system ; AutomatedParkingSystem ;
+; Family name                                                                     ; Cyclone V                ; Cyclone V              ;
+; Use smart compilation                                                           ; Off                      ; Off                    ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                       ; On                     ;
+; Enable compact report table                                                     ; Off                      ; Off                    ;
+; Restructure Multiplexers                                                        ; Auto                     ; Auto                   ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                      ; Off                    ;
+; Create Debugging Nodes for IP Cores                                             ; Off                      ; Off                    ;
+; Preserve fewer node names                                                       ; On                       ; On                     ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                   ; Enable                 ;
+; Verilog Version                                                                 ; Verilog_2001             ; Verilog_2001           ;
+; VHDL Version                                                                    ; VHDL_1993                ; VHDL_1993              ;
+; State Machine Processing                                                        ; Auto                     ; Auto                   ;
+; Safe State Machine                                                              ; Off                      ; Off                    ;
+; Extract Verilog State Machines                                                  ; On                       ; On                     ;
+; Extract VHDL State Machines                                                     ; On                       ; On                     ;
+; Ignore Verilog initial constructs                                               ; Off                      ; Off                    ;
+; Iteration limit for constant Verilog loops                                      ; 5000                     ; 5000                   ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                      ; 250                    ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                       ; On                     ;
+; Infer RAMs from Raw Logic                                                       ; On                       ; On                     ;
+; Parallel Synthesis                                                              ; On                       ; On                     ;
+; DSP Block Balancing                                                             ; Auto                     ; Auto                   ;
+; NOT Gate Push-Back                                                              ; On                       ; On                     ;
+; Power-Up Don't Care                                                             ; On                       ; On                     ;
+; Remove Redundant Logic Cells                                                    ; Off                      ; Off                    ;
+; Remove Duplicate Registers                                                      ; On                       ; On                     ;
+; Ignore CARRY Buffers                                                            ; Off                      ; Off                    ;
+; Ignore CASCADE Buffers                                                          ; Off                      ; Off                    ;
+; Ignore GLOBAL Buffers                                                           ; Off                      ; Off                    ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                      ; Off                    ;
+; Ignore LCELL Buffers                                                            ; Off                      ; Off                    ;
+; Ignore SOFT Buffers                                                             ; On                       ; On                     ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                      ; Off                    ;
+; Optimization Technique                                                          ; Balanced                 ; Balanced               ;
+; Carry Chain Length                                                              ; 70                       ; 70                     ;
+; Auto Carry Chains                                                               ; On                       ; On                     ;
+; Auto Open-Drain Pins                                                            ; On                       ; On                     ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                      ; Off                    ;
+; Auto ROM Replacement                                                            ; On                       ; On                     ;
+; Auto RAM Replacement                                                            ; On                       ; On                     ;
+; Auto DSP Block Replacement                                                      ; On                       ; On                     ;
+; Auto Shift Register Replacement                                                 ; Auto                     ; Auto                   ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                     ; Auto                   ;
+; Auto Clock Enable Replacement                                                   ; On                       ; On                     ;
+; Strict RAM Replacement                                                          ; Off                      ; Off                    ;
+; Allow Synchronous Control Signals                                               ; On                       ; On                     ;
+; Force Use of Synchronous Clear Signals                                          ; Off                      ; Off                    ;
+; Auto Resource Sharing                                                           ; Off                      ; Off                    ;
+; Allow Any RAM Size For Recognition                                              ; Off                      ; Off                    ;
+; Allow Any ROM Size For Recognition                                              ; Off                      ; Off                    ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                      ; Off                    ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                       ; On                     ;
+; Ignore translate_off and synthesis_off directives                               ; Off                      ; Off                    ;
+; Timing-Driven Synthesis                                                         ; On                       ; On                     ;
+; Report Parameter Settings                                                       ; On                       ; On                     ;
+; Report Source Assignments                                                       ; On                       ; On                     ;
+; Report Connectivity Checks                                                      ; On                       ; On                     ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                      ; Off                    ;
+; Synchronization Register Chain Length                                           ; 3                        ; 3                      ;
+; Power Optimization During Synthesis                                             ; Normal compilation       ; Normal compilation     ;
+; HDL message level                                                               ; Level2                   ; Level2                 ;
+; Suppress Register Optimization Related Messages                                 ; Off                      ; Off                    ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                     ; 5000                   ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                     ; 5000                   ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                      ; 100                    ;
+; Clock MUX Protection                                                            ; On                       ; On                     ;
+; Auto Gated Clock Conversion                                                     ; Off                      ; Off                    ;
+; Block Design Naming                                                             ; Auto                     ; Auto                   ;
+; SDC constraint protection                                                       ; Off                      ; Off                    ;
+; Synthesis Effort                                                                ; Auto                     ; Auto                   ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                       ; On                     ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                      ; Off                    ;
+; Analysis & Synthesis Message Level                                              ; Medium                   ; Medium                 ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                     ; Auto                   ;
+; Resource Aware Inference For Block RAM                                          ; On                       ; On                     ;
+; Automatic Parallel Synthesis                                                    ; On                       ; On                     ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                      ; Off                    ;
++---------------------------------------------------------------------------------+--------------------------+------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; e_automated_parking_system.vhd   ; yes             ; User VHDL File  ; C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd ;         ;
+; e_payment_fsm.vhd                ; yes             ; User VHDL File  ; C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd              ;         ;
+; e_parking_fsm.vhd                ; yes             ; User VHDL File  ; C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_parking_fsm.vhd              ;         ;
+; e_memory.vhd                     ; yes             ; User VHDL File  ; C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd                   ;         ;
+; e_7seg_words_coins.vhd           ; yes             ; User VHDL File  ; C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_7seg_words_coins.vhd         ;         ;
+; e_7seg_bcd_decoder.vhd           ; yes             ; User VHDL File  ; C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_7seg_bcd_decoder.vhd         ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 51          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 83          ;
+;     -- 7 input functions                    ; 8           ;
+;     -- 6 input functions                    ; 10          ;
+;     -- 5 input functions                    ; 12          ;
+;     -- 4 input functions                    ; 18          ;
+;     -- <=3 input functions                  ; 35          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 15          ;
+;                                             ;             ;
+; I/O pins                                    ; 65          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 25          ;
+; Total fan-out                               ; 463         ;
+; Average fan-out                             ; 2.03        ;
++---------------------------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                 ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Entity Name              ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+--------------------------+--------------+
+; |automated_parking_system                    ; 83 (0)              ; 15 (0)                    ; 0                 ; 0          ; 65   ; 0            ; |automated_parking_system                                         ; automated_parking_system ; work         ;
+;    |e_7seg_bcd_decoder:i_e_7seg_bcd_decoder| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |automated_parking_system|e_7seg_bcd_decoder:i_e_7seg_bcd_decoder ; e_7seg_bcd_decoder       ; work         ;
+;    |e_memory:i_e_memory|                     ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |automated_parking_system|e_memory:i_e_memory                     ; e_memory                 ; work         ;
+;    |e_parking_fsm:i_e_parking_fsm|           ; 19 (19)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |automated_parking_system|e_parking_fsm:i_e_parking_fsm           ; e_parking_fsm            ; work         ;
+;    |e_payment_fsm:i_e_payment_fsm|           ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |automated_parking_system|e_payment_fsm:i_e_payment_fsm           ; e_payment_fsm            ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+--------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |automated_parking_system|e_parking_fsm:i_e_parking_fsm|sl_present_state                                                                                                                                                                                                                                                                                                        ;
++-------------------------------------+----------------------------------+-------------------------------------+-----------------------------+-----------------------------------+------------------------------------+-------------------------------+--------------------------------+---------------------------------+-------------------------------------+----------------------------------+
+; Name                                ; sl_present_state.full_park_state ; sl_present_state.parking_done_state ; sl_present_state.hold_state ; sl_present_state.car_inside_state ; sl_present_state.parking_car_state ; sl_present_state.paying_state ; sl_present_state.address_state ; sl_present_state.password_state ; sl_present_state.car_detected_state ; sl_present_state.no_action_state ;
++-------------------------------------+----------------------------------+-------------------------------------+-----------------------------+-----------------------------------+------------------------------------+-------------------------------+--------------------------------+---------------------------------+-------------------------------------+----------------------------------+
+; sl_present_state.no_action_state    ; 0                                ; 0                                   ; 0                           ; 0                                 ; 0                                  ; 0                             ; 0                              ; 0                               ; 0                                   ; 0                                ;
+; sl_present_state.car_detected_state ; 0                                ; 0                                   ; 0                           ; 0                                 ; 0                                  ; 0                             ; 0                              ; 0                               ; 1                                   ; 1                                ;
+; sl_present_state.password_state     ; 0                                ; 0                                   ; 0                           ; 0                                 ; 0                                  ; 0                             ; 0                              ; 1                               ; 0                                   ; 1                                ;
+; sl_present_state.address_state      ; 0                                ; 0                                   ; 0                           ; 0                                 ; 0                                  ; 0                             ; 1                              ; 0                               ; 0                                   ; 1                                ;
+; sl_present_state.paying_state       ; 0                                ; 0                                   ; 0                           ; 0                                 ; 0                                  ; 1                             ; 0                              ; 0                               ; 0                                   ; 1                                ;
+; sl_present_state.parking_car_state  ; 0                                ; 0                                   ; 0                           ; 0                                 ; 1                                  ; 0                             ; 0                              ; 0                               ; 0                                   ; 1                                ;
+; sl_present_state.car_inside_state   ; 0                                ; 0                                   ; 0                           ; 1                                 ; 0                                  ; 0                             ; 0                              ; 0                               ; 0                                   ; 1                                ;
+; sl_present_state.hold_state         ; 0                                ; 0                                   ; 1                           ; 0                                 ; 0                                  ; 0                             ; 0                              ; 0                               ; 0                                   ; 1                                ;
+; sl_present_state.parking_done_state ; 0                                ; 1                                   ; 0                           ; 0                                 ; 0                                  ; 0                             ; 0                              ; 0                               ; 0                                   ; 1                                ;
+; sl_present_state.full_park_state    ; 1                                ; 0                                   ; 0                           ; 0                                 ; 0                                  ; 0                             ; 0                              ; 0                               ; 0                                   ; 1                                ;
++-------------------------------------+----------------------------------+-------------------------------------+-----------------------------+-----------------------------------+------------------------------------+-------------------------------+--------------------------------+---------------------------------+-------------------------------------+----------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                     ;
++-----------------------------------------------------------------------+----------------------------------------+------------------------+
+; Latch Name                                                            ; Latch Enable Signal                    ; Free of Timing Hazards ;
++-----------------------------------------------------------------------+----------------------------------------+------------------------+
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.one_euro_ten_cents_289    ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.one_euro_thirty_cents_273 ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.one_euro_forty_cents_265  ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.one_euro_twenty_cents_281 ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.ninety_cents_305          ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.sixty_cents_329           ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.one_euro_297              ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.eighty_cents_313          ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.seventy_cents_321         ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.forty_cents_345           ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.fifty_cents_337           ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.ten_cents_369             ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.thirty_cents_353          ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.twenty_cents_361          ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_payment_fsm:i_e_payment_fsm|sl_coin_state.zero_cent_377             ; e_payment_fsm:i_e_payment_fsm|WideOr23 ; yes                    ;
+; e_memory:i_e_memory|address_is_available                              ; reset                                  ; yes                    ;
+; e_memory:i_e_memory|memory[8]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[5]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[7]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[4]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[6]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[1]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[3]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[0]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; e_memory:i_e_memory|memory[2]                                         ; e_memory:i_e_memory|Decoder0           ; yes                    ;
+; Number of user-specified and inferred latches = 25                    ;                                        ;                        ;
++-----------------------------------------------------------------------+----------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                      ;
++----------------------------------------------------------------+----------------------------------------+
+; Register name                                                  ; Reason for Removal                     ;
++----------------------------------------------------------------+----------------------------------------+
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_1[1,3..6]          ; Stuck at VCC due to stuck port data_in ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_3[1,6]             ; Stuck at VCC due to stuck port data_in ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_1[0,2]             ; Stuck at VCC due to stuck port data_in ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_2[0..6]            ; Stuck at VCC due to stuck port data_in ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_3[0,2..5]          ; Stuck at VCC due to stuck port data_in ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_4[0..6]            ; Stuck at VCC due to stuck port data_in ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_5[0..6]            ; Stuck at VCC due to stuck port data_in ;
+; e_parking_fsm:i_e_parking_fsm|sl_present_state.full_park_state ; Lost fanout                            ;
+; Total Number of Removed Registers = 36                         ;                                        ;
++----------------------------------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++--------------------------------------------------+---------------------------+---------------------------------------------------+
+; Register name                                    ; Reason for Removal        ; Registers Removed due to This Register            ;
++--------------------------------------------------+---------------------------+---------------------------------------------------+
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_1[2] ; Stuck at VCC              ; e_7seg_words_coins:i_e_7seg_words_coins|hex_2[3], ;
+;                                                  ; due to stuck port data_in ; e_7seg_words_coins:i_e_7seg_words_coins|hex_3[0], ;
+;                                                  ;                           ; e_7seg_words_coins:i_e_7seg_words_coins|hex_3[2], ;
+;                                                  ;                           ; e_7seg_words_coins:i_e_7seg_words_coins|hex_3[3]  ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_1[4] ; Stuck at VCC              ; e_7seg_words_coins:i_e_7seg_words_coins|hex_2[4]  ;
+;                                                  ; due to stuck port data_in ;                                                   ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_1[6] ; Stuck at VCC              ; e_7seg_words_coins:i_e_7seg_words_coins|hex_2[5]  ;
+;                                                  ; due to stuck port data_in ;                                                   ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_3[6] ; Stuck at VCC              ; e_7seg_words_coins:i_e_7seg_words_coins|hex_3[5]  ;
+;                                                  ; due to stuck port data_in ;                                                   ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_1[0] ; Stuck at VCC              ; e_7seg_words_coins:i_e_7seg_words_coins|hex_2[2]  ;
+;                                                  ; due to stuck port data_in ;                                                   ;
+; e_7seg_words_coins:i_e_7seg_words_coins|hex_2[1] ; Stuck at VCC              ; e_7seg_words_coins:i_e_7seg_words_coins|hex_2[6]  ;
+;                                                  ; due to stuck port data_in ;                                                   ;
++--------------------------------------------------+---------------------------+---------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 15    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |automated_parking_system|e_payment_fsm:i_e_payment_fsm|sl_coin_state ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |automated_parking_system|e_parking_fsm:i_e_parking_fsm|Selector2     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: e_memory:i_e_memory ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; n              ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: e_parking_fsm:i_e_parking_fsm ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; n              ; 8     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: e_payment_fsm:i_e_payment_fsm ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; n              ; 8     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: e_7seg_words_coins:i_e_7seg_words_coins ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: e_7seg_bcd_decoder:i_e_7seg_bcd_decoder ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 15                          ;
+;     CLR               ; 9                           ;
+;     plain             ; 6                           ;
+; arriav_lcell_comb     ; 86                          ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 78                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 32                          ;
+;         4 data inputs ; 18                          ;
+;         5 data inputs ; 12                          ;
+;         6 data inputs ; 10                          ;
+; boundary_port         ; 65                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.81                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Aug 13 15:12:32 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AutomatedParkingSystem -c AutomatedParkingSystem
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file e_automated_parking_system.vhd
+    Info (12022): Found design unit 1: automated_parking_system-a_automated_parking_system File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 19
+    Info (12023): Found entity 1: automated_parking_system File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file e_payment_fsm.vhd
+    Info (12022): Found design unit 1: e_payment_fsm-a_payment_fsm File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 14
+    Info (12023): Found entity 1: e_payment_fsm File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file e_parking_fsm.vhd
+    Info (12022): Found design unit 1: e_parking_fsm-a_parking_fsm File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_parking_fsm.vhd Line: 17
+    Info (12023): Found entity 1: e_parking_fsm File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_parking_fsm.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file e_memory.vhd
+    Info (12022): Found design unit 1: e_memory-a_memory File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 14
+    Info (12023): Found entity 1: e_memory File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file e_7seg_words_coins.vhd
+    Info (12022): Found design unit 1: e_7seg_words_coins-a_7seg_words_coins File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_7seg_words_coins.vhd Line: 14
+    Info (12023): Found entity 1: e_7seg_words_coins File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_7seg_words_coins.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file e_7seg_bcd_decoder.vhd
+    Info (12022): Found design unit 1: e_7seg_bcd_decoder-a_7seg_bcd_decoder File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_7seg_bcd_decoder.vhd Line: 14
+    Info (12023): Found entity 1: e_7seg_bcd_decoder File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_7seg_bcd_decoder.vhd Line: 4
+Info (12127): Elaborating entity "automated_parking_system" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at e_automated_parking_system.vhd(142): signal "sl_address_available" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 142
+Warning (10631): VHDL Process Statement warning at e_automated_parking_system.vhd(135): inferring latch(es) for signal or variable "sl_word_choice", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (10631): VHDL Process Statement warning at e_automated_parking_system.vhd(135): inferring latch(es) for signal or variable "sl_memory_enable", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (10631): VHDL Process Statement warning at e_automated_parking_system.vhd(135): inferring latch(es) for signal or variable "red_led", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (10631): VHDL Process Statement warning at e_automated_parking_system.vhd(135): inferring latch(es) for signal or variable "green_led", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (10631): VHDL Process Statement warning at e_automated_parking_system.vhd(135): inferring latch(es) for signal or variable "gate", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (10041): Inferred latch for "gate" at e_automated_parking_system.vhd(135) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (10041): Inferred latch for "green_led" at e_automated_parking_system.vhd(135) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (10041): Inferred latch for "red_led" at e_automated_parking_system.vhd(135) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (10041): Inferred latch for "sl_memory_enable" at e_automated_parking_system.vhd(135) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (10041): Inferred latch for "sl_word_choice[0]" at e_automated_parking_system.vhd(135) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (10041): Inferred latch for "sl_word_choice[1]" at e_automated_parking_system.vhd(135) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (10041): Inferred latch for "sl_word_choice[2]" at e_automated_parking_system.vhd(135) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Info (12128): Elaborating entity "e_memory" for hierarchy "e_memory:i_e_memory" File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 118
+Warning (10492): VHDL Process Statement warning at e_memory.vhd(26): signal "memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at e_memory.vhd(26): signal "address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at e_memory.vhd(29): signal "address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at e_memory.vhd(22): inferring latch(es) for signal or variable "memory", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Warning (10631): VHDL Process Statement warning at e_memory.vhd(22): inferring latch(es) for signal or variable "address_is_available", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "address_is_available" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[8]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[7]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[6]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[5]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[4]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[3]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[2]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[1]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (10041): Inferred latch for "memory[0]" at e_memory.vhd(22) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_memory.vhd Line: 22
+Info (12128): Elaborating entity "e_parking_fsm" for hierarchy "e_parking_fsm:i_e_parking_fsm" File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 122
+Warning (10541): VHDL Signal Declaration warning at e_parking_fsm.vhd(13): used implicit default value for signal "state_choice" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_parking_fsm.vhd Line: 13
+Warning (10036): Verilog HDL or VHDL warning at e_parking_fsm.vhd(29): object "sl_state_choice" assigned a value but never read File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_parking_fsm.vhd Line: 29
+Info (12128): Elaborating entity "e_payment_fsm" for hierarchy "e_payment_fsm:i_e_payment_fsm" File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 131
+Warning (10492): VHDL Process Statement warning at e_payment_fsm.vhd(26): signal "sl_coin_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 26
+Warning (10631): VHDL Process Statement warning at e_payment_fsm.vhd(25): inferring latch(es) for signal or variable "sl_coin_state", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Warning (10631): VHDL Process Statement warning at e_payment_fsm.vhd(25): inferring latch(es) for signal or variable "paid", which holds its previous value in one or more paths through the process File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "paid" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.one_euro_forty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.one_euro_thirty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.one_euro_twenty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.one_euro_ten_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.one_euro" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.ninety_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.eighty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.seventy_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.sixty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.fifty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.forty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.thirty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.twenty_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.ten_cents" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (10041): Inferred latch for "sl_coin_state.zero_cent" at e_payment_fsm.vhd(25) File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_payment_fsm.vhd Line: 25
+Info (12128): Elaborating entity "e_7seg_words_coins" for hierarchy "e_7seg_words_coins:i_e_7seg_words_coins" File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 173
+Info (12128): Elaborating entity "e_7seg_bcd_decoder" for hierarchy "e_7seg_bcd_decoder:i_e_7seg_bcd_decoder" File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 179
+Warning (14026): LATCH primitive "sl_word_choice[1]" is permanently enabled File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (14026): LATCH primitive "sl_word_choice[2]" is permanently enabled File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (14025): LATCH primitive "gate$latch" is permanently disabled File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (14025): LATCH primitive "green_led$latch" is permanently disabled File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (14025): LATCH primitive "red_led$latch" is permanently disabled File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 135
+Warning (14025): LATCH primitive "sl_memory_enable" is permanently disabled File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 33
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "green_led" is stuck at GND File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 12
+    Warning (13410): Pin "red_led" is stuck at GND File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 12
+    Warning (13410): Pin "gate" is stuck at GND File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 13
+    Warning (13410): Pin "hex_1[0]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_1[1]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_1[2]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_1[3]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_1[4]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_1[5]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_1[6]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_2[0]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_2[1]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_2[2]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_2[3]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_2[4]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_2[5]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_2[6]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_3[0]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_3[1]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_3[2]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_3[3]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_3[4]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_3[5]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_3[6]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_4[0]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_4[1]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_4[2]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_4[3]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_4[4]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_4[5]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_4[6]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_5[0]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_5[1]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_5[2]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_5[3]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_5[4]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_5[5]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "hex_5[6]" is stuck at VCC File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 14
+    Warning (13410): Pin "coin_out[2]" is stuck at GND File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 15
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "car_entering_sensor" File: C:/Users/TARIKH/Desktop/Automated Paking System VHDL/e_automated_parking_system.vhd Line: 8
+Info (21057): Implemented 148 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 17 input pins
+    Info (21059): Implemented 48 output pins
+    Info (21061): Implemented 83 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
+    Info: Peak virtual memory: 4866 megabytes
+    Info: Processing ended: Thu Aug 13 15:12:49 2020
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:31
+
+

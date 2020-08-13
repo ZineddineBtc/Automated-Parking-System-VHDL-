@@ -1,0 +1,13 @@
+
+State Machine - |automated_parking_system|e_parking_fsm:i_e_parking_fsm|sl_present_state
+Name sl_present_state.full_park_state sl_present_state.parking_done_state sl_present_state.hold_state sl_present_state.car_inside_state sl_present_state.parking_car_state sl_present_state.paying_state sl_present_state.address_state sl_present_state.password_state sl_present_state.car_detected_state sl_present_state.no_action_state 
+sl_present_state.no_action_state 0 0 0 0 0 0 0 0 0 0 
+sl_present_state.car_detected_state 0 0 0 0 0 0 0 0 1 1 
+sl_present_state.password_state 0 0 0 0 0 0 0 1 0 1 
+sl_present_state.address_state 0 0 0 0 0 0 1 0 0 1 
+sl_present_state.paying_state 0 0 0 0 0 1 0 0 0 1 
+sl_present_state.parking_car_state 0 0 0 0 1 0 0 0 0 1 
+sl_present_state.car_inside_state 0 0 0 1 0 0 0 0 0 1 
+sl_present_state.hold_state 0 0 1 0 0 0 0 0 0 1 
+sl_present_state.parking_done_state 0 1 0 0 0 0 0 0 0 1 
+sl_present_state.full_park_state 1 0 0 0 0 0 0 0 0 1 
